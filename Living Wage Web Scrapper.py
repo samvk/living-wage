@@ -46,8 +46,8 @@ for page_url in pages_with_data:
     # Build a data frame to hold the data
     temp_df = pd.DataFrame(data, columns=column_headers)
     # Add in annual incomes
-    temp_df['Annual income (after taxes)']=soup.find('td', text='Required annual income after taxes').find_next_sibling().text
-    temp_df['Annual income (before taxes)']=soup.find('td', text='Required annual income before taxes').find_next_sibling().text
+    temp_df['Annual income (after taxes)']=soup.find('td', text='Required annual income after taxes').find_next_sibling().text.strip()
+    temp_df['Annual income (before taxes)']=soup.find('td', text='Required annual income before taxes').find_next_sibling().text.strip()
     # Add in the FIPS code
     fips = re.findall('\d+', page_url)
     temp_df['FIPS Code']=fips[0]
