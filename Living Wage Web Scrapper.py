@@ -53,7 +53,7 @@ for page_url in pages_with_data:
     temp_df['FIPS Code']=fips[0]
     # Add in the location from the header
     location = soup.select('.container h1')[0].text
-    location = location.replace('Living Wage Calculation for ','')
+    location = location.replace('Living Wage Calculation for ', '')
     location = location.split(', ')
     temp_df['County']=location[0] if len(location) == 2 else '-'
     temp_df['State']=location[1] if len(location) == 2 else location[0]
