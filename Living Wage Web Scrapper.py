@@ -54,7 +54,9 @@ for page_url in pages_with_data:
     # Add in the location from the header
     location = soup.select('.container h1')[0].text
     location = location.replace('Living Wage Calculation for ','')
-    temp_df['Location']=location
+    location = location.split(', ')
+    temp_df['County']=location[0] if len(location) == 2 else '-'
+    temp_df['State']=location[1] if len(location) == 2 else location[0]
     temp_df['Year'] = data_year
     temp_df['URL'] = page_url
     # Create or append to the final data frame
