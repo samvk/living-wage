@@ -25,7 +25,7 @@ for link in soup.findAll('a'):
         state_urls.append('https://livingwage.mit.edu'+link['href'])
 
 # Build the list of pages with data
-print('Scrapping state pages for links to pages with data')
+print('Scraping state pages for links to pages with data')
 for state_url in state_urls:
     web_page = requests.get(state_url)
     soup = BeautifulSoup(web_page.content, 'lxml')
@@ -35,7 +35,7 @@ for state_url in state_urls:
 
 # Finally scrape the pages with data
 for page_url in pages_with_data:
-    print('Scrapping '+page_url)
+    print('Scraping '+page_url)
     web_page = requests.get(page_url)
     soup = BeautifulSoup(web_page.content, 'lxml')
     # Pull the header from the first table

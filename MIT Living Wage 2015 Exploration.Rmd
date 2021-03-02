@@ -15,7 +15,7 @@ EXPLANATION OF THE DATA AND MOTIVATION FOR :
 
 ### Data Manipulation 
 
-I pull in the data scrapped from the website and change the data types:  
+I pull in the data scraped from the website and change the data types:
 
 ```{r read data, message=FALSE}
 df <- read.csv('2015 Living Wage.csv') 
